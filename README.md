@@ -15,7 +15,7 @@ Workers can update states from a mobile device, dashboards update in real time, 
 - **Realtime transport:** SignalR hub at `/hubs/state` for live updates between devices and dashboards.
 
 Quick facts
-- API endpoints: `GET /api/equipment`, `PATCH /api/equipment/state` (body: `{ equipmentId, newState, changedBy }`), `GET /api/equipment/{id}/history`.
+- API endpoints: `GET /api/equipment`, `PATCH /api/equipment/state`, `GET /api/equipment/{id}/history`.
 - SignalR hub: `/hubs/state`.
 
 Tech summary
@@ -26,7 +26,14 @@ Tech summary
 | Database | SQLite (via EF Core) |
 | Container / tooling | Docker, Docker Compose, npm, dotnet CLI |
 
-Getting started (local, simple)
+
+## Getting started (local, simple)
+Run with Docker
+
+```bash
+docker compose up --build
+```
+
 - Start backend (local SQLite DB):
 
 ```bash
@@ -41,12 +48,6 @@ npm install
 npm run dev
 ```
 
-Run with Docker
-
-```bash
-docker compose up --build
-```
-
 What is demonstrated in one singel view for simplicity purpose:
 - A simple mobile-friendly controller UI to change an equipment's state.
 - A dashboard view that both workers and supervisors have access to, to view overall updates instantly when states change.
@@ -57,8 +58,3 @@ Why this design
 - SignalR provides low-latency updates without polling, keeping the dashboard in sync.
 - SQLite keeps the setup simple for demos and interviews while EF Core migrations provide
 	an upgrade path to a more robust DB if needed.
-
-Next steps (ideas)
-- Add authentication (workers vs supervisors).
-- Add order scheduling and correlate orders with state changes.
-- Add device pairing (QR codes) for physical equipment-to-device mapping.
