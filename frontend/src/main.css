@@ -1,0 +1,24 @@
+:root{
+	--card-bg: #fff;
+	--card-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.card{background:var(--card-bg);box-shadow:var(--card-shadow);border-radius:8px;padding:1rem}
+
+.badge{display:inline-block;padding:0.125rem 0.5rem;border-radius:6px;font-size:0.75rem;font-weight:600}
+
+.badge-red{background:#fff1f0;color:#cf1322}
+
+.badge-yellow{background:#fffbe6;color:#ad8b00}
+
+.badge-green{background:#f6ffed;color:#237804}
+
+/* Basic table styles */
+table{width:100%;border-collapse:collapse}
+thead th{font-size:0.75rem;color:#6b7280;text-transform:uppercase}
+tbody td{padding:0.5rem 0}
+
+/* Basic responsiveness */
+@media (max-width:800px){
+	.grid-cols-2{grid-template-columns:1fr}
+}
